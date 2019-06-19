@@ -2,16 +2,17 @@
 Main application and routing/configuration logic for TwitOff
 """
 
+from decouple import config # Reads our .env file
 from flask import Flask, render_template, request
 from .models import DB, User
-from decouple import config # Reads our .env file
 
 def create_app():
     """ Create and configure an instance of the Flask application."""
     app = Flask(__name__)
+    # the config(...) is from the .env
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # Warning goes away
-    app.config['ENV'] = config('ENV') # Shows detailed error # Don't deploy
+    app.config['ENV'] = config('ENV') 
     DB.init_app(app)
 
     # Root route

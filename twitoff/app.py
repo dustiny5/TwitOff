@@ -9,7 +9,7 @@ from .models import DB, User
 def create_app():
     """ Create and configure an instance of the Flask application."""
     app = Flask(__name__)
-    # the config(...) is from the .env
+    # the config(...) is from the .env # Save to the database
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # Warning goes away
     app.config['ENV'] = config('ENV') 

@@ -13,6 +13,8 @@ python-decouple = "*"
 numpy = "*"
 scikit-learn = "*"
 tweepy = "*"
+sklearn = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"

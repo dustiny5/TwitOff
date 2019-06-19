@@ -22,7 +22,7 @@ def create_app():
         # Look inside template directory
         return render_template('base.html', title='Home', users=users)
     
-    # Convenient reset
+    # Convenient reset - Not for deployment
     @app.route('/reset')
     def reset():
         DB.drop_all()

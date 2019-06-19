@@ -21,7 +21,8 @@ class Tweet(DB.Model):
     user_id = DB.Column(DB.BigInteger, DB.ForeignKey('user.id'), nullable=False)
     # Creates an empty list user.tweets.
     # Append tweets to user.tweets
-    # Bypasses join and can get tweets easier
+    # Bypasses sql join and can get tweets easier
+    # Doesn't save in a database, It is created when code is executed.
     user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
 
     def __repr__(self):

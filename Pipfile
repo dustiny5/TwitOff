@@ -15,6 +15,9 @@ scikit-learn = "*"
 tweepy = "*"
 sklearn = "*"
 python-dotenv = "*"
+freeze = "*"
+env = "*"
+export = "*"
 
 [requires]
 python_version = "3.7"

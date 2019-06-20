@@ -47,7 +47,7 @@ def create_app():
             tweets = []
         return render_template('user.html', title=name, tweets=tweets, message=message)
     # Apply to predict.html
-    @app.route('compare', methods=['POST'])
+    @app.route('/compare', methods=['POST'])
         user1, user2 = sorted([request.values['user1'], 
                                request.values['user2']])
         if user1 == user2:

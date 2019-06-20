@@ -1,7 +1,7 @@
 """
 Main application and routing/configuration logic for TwitOff
 """
-
+import os
 from decouple import config # Reads our .env file
 from flask import Flask, render_template, request
 from .models import DB, User
@@ -12,7 +12,9 @@ def create_app():
     """ Create and configure an instance of the Flask application."""
     app = Flask(__name__)
     # the config(...) is from the .env # Save to the database
-    app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
+    # app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
+    # For Heroku
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # Warning goes away
     # app.config['ENV'] = config('ENV') # Not necessary added to .env
     DB.init_app(app)

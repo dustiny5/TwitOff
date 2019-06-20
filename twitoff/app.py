@@ -54,8 +54,7 @@ def create_app():
     @app.route('/compare', methods=['POST'])
     def compare():
         # Retrieve user1 and user2
-        user1, user2 = sorted([request.values['user1'], 
-                               request.values['user2']])
+        user1, user2 = [request.values['user1'], request.values['user2']]
         if user1 == user2:
             message = 'Cannot compare a user to themselves!'
         else:

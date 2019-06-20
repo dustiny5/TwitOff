@@ -52,9 +52,9 @@ def create_app():
         return render_template('user.html', title=name, tweets=tweets, message=message)
     # Apply to prediction.html
     @app.route('/compare', methods=['POST'])
-    def compare():
+    def compare(message=''):
         # Retrieve user1 and user2
-        user1, user2 = [request.values['user1'], request.values['user2']]
+        user1, user2 = sorted([request.values['user1'], request.values['user2']])
         if user1 == user2:
             message = 'Cannot compare a user to themselves!'
         else:

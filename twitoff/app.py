@@ -12,6 +12,7 @@ def create_app():
     """ Create and configure an instance of the Flask application."""
     app = Flask(__name__)
     # the config(...) is from the .env # Save to the database
+    # Remove the below line when uploading to heroku
     # app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
     # For Heroku
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
@@ -51,7 +52,7 @@ def create_app():
         return render_template('user.html', title=name, tweets=tweets, message=message)
     # Apply to prediction.html
     @app.route('/compare', methods=['POST'])
-    def compare(message=''):
+    def compare():
         # Retrieve user1 and user2
         user1, user2 = sorted([request.values['user1'], 
                                request.values['user2']])

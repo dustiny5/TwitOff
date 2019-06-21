@@ -18,6 +18,7 @@ class Tweet(DB.Model):
     id = DB.Column(DB.BigInteger, primary_key=True)
     text = DB.Column(DB.Unicode(500))
     embedding = DB.Column(DB.PickleType, nullable=False)
+    # user.id points to the User Class
     user_id = DB.Column(DB.BigInteger, DB.ForeignKey('user.id'), nullable=False)
     # Creates an empty list user.tweets.
     # Append tweets to user.tweets
